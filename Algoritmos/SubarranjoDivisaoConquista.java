@@ -1,3 +1,4 @@
+package Algoritmos;
 public class SubarranjoDivisaoConquista {
     public static long[] resolver(int[] vetor) {
         if (vetor == null || vetor.length == 0) {

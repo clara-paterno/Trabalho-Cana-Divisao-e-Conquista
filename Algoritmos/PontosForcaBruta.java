@@ -1,3 +1,4 @@
+package Algoritmos;
 public class PontosForcaBruta {
     public static double[] resolver(int[][] pontos) {
         if (pontos == null || pontos.length < 2) {
