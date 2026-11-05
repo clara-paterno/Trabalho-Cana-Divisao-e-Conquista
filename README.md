@@ -20,7 +20,55 @@ O objetivo é encontrar a menor distância entre dois pontos em um plano cartesi
 - **Força bruta:** compara todos os pares de pontos. Complexidade O(n²).
 - **Divisão e conquista:** divide os pontos em duas regiões e verifica os possíveis pares mais próximos, incluindo os que atravessam a divisão. Complexidade O(n log n).
 
-## 2. Estrutura do projeto
+## 2. Análise teórica dos algoritmos
+
+Além da implementação, foi realizada uma análise teórica das complexidades dos algoritmos, considerando o crescimento do tempo de execução conforme o tamanho da entrada aumenta.
+
+### Subarranjo de Soma Máxima
+
+**Força Bruta:**
+- Percorre todas as possíveis posições iniciais e finais do vetor.
+- Calcula as somas dos intervalos e identifica o maior resultado.
+- Complexidade de tempo: O(n²).
+
+**Divisão e Conquista:**
+- Divide o vetor em duas metades.
+- Resolve recursivamente o problema em cada metade.
+- Calcula o melhor subarranjo que atravessa o ponto médio.
+- Compara os três resultados para encontrar a maior soma.
+
+Recorrência:
+
+T(n) = 2T(n/2) + O(n)
+
+Complexidade de tempo: O(n log n).
+
+### Par de Pontos Mais Próximos
+
+**Força Bruta:**
+- Calcula a distância entre todos os pares possíveis de pontos.
+- Mantém a menor distância encontrada.
+- Complexidade de tempo: O(n²).
+
+**Divisão e Conquista:**
+- Divide os pontos em duas regiões.
+- Encontra recursivamente a menor distância em cada região.
+- Verifica os pontos próximos à linha de divisão para identificar possíveis pares que estejam em lados diferentes.
+- Retorna a menor distância encontrada.
+
+Recorrência:
+
+T(n) = 2T(n/2) + O(n)
+
+Complexidade de tempo: O(n log n), considerando a organização dos pontos e a verificação eficiente da região próxima à divisão.
+
+### Comparação entre as abordagens
+
+A força bruta apresenta uma implementação mais simples e pode ser competitiva para entradas pequenas. Entretanto, seu tempo de execução cresce quadraticamente.
+
+A divisão e conquista reduz o crescimento assintótico do tempo de execução para O(n log n), sendo mais adequada para entradas maiores, desde que sua implementação utilize as otimizações necessárias.
+
+## 3. Estrutura do projeto
 
 ```text
 Trabalho-Cana-Divisao-e-Conquista/
@@ -43,7 +91,7 @@ Trabalho-Cana-Divisao-e-Conquista/
 └── README.md
 ```
 
-## 3. Tecnologias utilizadas
+## 4. Tecnologias utilizadas
 
 - Java 21 — implementação dos algoritmos e testes.
 - Python 3 — processamento dos dados experimentais.
@@ -52,7 +100,7 @@ Trabalho-Cana-Divisao-e-Conquista/
 - Git e GitHub — versionamento do projeto.
 
 
-## 4. Como executar
+## 5. Como executar
 
 É necessário ter o JDK instalado.
 
@@ -81,7 +129,7 @@ Para salvar as medições em um arquivo CSV:
 java -cp build Algoritmos.AnaliseExperimental > resultados.csv
 ```
 
-## 5. Testes automatizados
+## 6. Testes automatizados
 
 O projeto contém testes para verificar a correção dos algoritmos, incluindo situações como:
 
@@ -94,7 +142,7 @@ O projeto contém testes para verificar a correção dos algoritmos, incluindo s
 
 Os casos de teste e suas justificativas estão documentados no arquivo `casos_teste.md`.
 
-## 6. Análise experimental
+## 7. Análise experimental
 
 Foram utilizados tamanhos de entrada de 100, 200, 400, 800, 1.600, 3.200 e 6.400 elementos.
 
@@ -125,7 +173,7 @@ py gerar_graficos.py
 
 Os resultados serão salvos na pasta `resultados/`.
 
-## 7. Resultados
+## 8. Resultados
 
 Os experimentos permitem observar que, em entradas pequenas, a força bruta pode apresentar menor tempo de execução devido à simplicidade da implementação.
 
@@ -133,7 +181,7 @@ Conforme o tamanho da entrada aumenta, os algoritmos de divisão e conquista ten
 
 A análise detalhada, incluindo gráficos, recorrências e discussão dos resultados, será apresentada no relatório do trabalho.
 
-## 8. Integrantes
+## 9. Integrantes
 
 - Francisco Mário Bernardo da Silva Filho
 - Maria Clara Paterno Maia
